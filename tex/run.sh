@@ -7,9 +7,9 @@
 #find . -name "rule*" -delete
 #find . -name "anw*" -delete
 
-#pdflatex --shell-escape ./Bericht.tex
-#echo 
-#bibtex ./Bericht
+pdflatex --shell-escape ./report.tex
+echo 
+bibtex ./report
 #echo
 #feynmf ./Bericht.tex
 #echo
@@ -17,8 +17,8 @@
 #	(mf $f)
 #done;
 #echo
-pdflatex --shell-escape ./report.tex
-echo
+#pdflatex --shell-escape ./report.tex
+#echo
 pdflatex --shell-escape ./report.tex
 echo
 pdflatex --shell-escape ./report.tex
