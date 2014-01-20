@@ -3,13 +3,23 @@
  *
  * @author Felix Hekhorn <felix.hekhorn@student.uni-tuebingen.de>
  **/
-#include <iostream>
+
+#include "types.h"
+#include "hydrogenlinalgsolver.h"
 
 using namespace std;
 
-int main()
-{
-    cout << "Hello World!" << endl;
-    return 0;
+/**
+ * @brief main
+ * @param argc num of console arguments
+ * @param argv console arguments
+ * @return EXIT_SUCCESS if successfull
+ */
+int main(/*int argc, char **argv*/) {
+    HydrogenLinAlgSolver app(100,10.);
+    app.run();
+
+    //EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }
 

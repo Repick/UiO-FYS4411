@@ -9,5 +9,6 @@ file structure:
 * img: output images
 * plot: gnuplot files
 * py: Python scripts for organising and scripting
+* ref: external documentation, references
 * results: output data files
 * tex: LaTeX files
