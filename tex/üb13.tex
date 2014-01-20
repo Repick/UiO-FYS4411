@@ -1,0 +1,178 @@
+% LaTeX Vorlage
+\documentclass[
+  ngerman,		% Sprache
+  a4paper,		% Papierformat
+  11pt,			% Schriftgröße (default 10pt)
+  DIV=12,		% Seiteneinteilung
+  parskip=half  	% Absätze (full,half,false -+*)
+]{scrartcl}
+%\documentclass[a4paper,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel} % Sprache 
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx} % Grafiken einbinden
+\usepackage[left=2cm,right=2cm,top=2.5cm,bottom=3cm]{geometry}
+\usepackage{color}
+\usepackage{bbm}
+
+%\usepackage{pdflscape}
+\usepackage{ulem}
+\usepackage{simplewick}
+\usepackage{array}
+\usepackage{feynmf}
+\usepackage{slashed}
+
+\include{lib}
+
+\title{QFT - Übungsblatt Nr. 13}
+\author{Felix Hekhorn, Benedikt Anlauf}
+\subtitle{ Gruppe A: Felix Ringer }
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\setcounter{section}{38}
+\def\thesubsection {\thesection.\alph{subsection}}
+
+\section{Chirale Darstellung}
+\subsection{}
+\[
+\left.\begin{array}{c}
+(\gamma^0)^2 = \mathbbm 1 \quad \{\gamma^0,\gamma^k\} = 0 \\
+\gamma^j\gamma^k =
+\left(\begin{array}{cc}
+-\sigma^j\sigma^k & 0\\
+0 & \sigma^j\sigma^k
+\end{array}\right) \quad \sigma^j\sigma^k = \delta^{jk} + i\epsilon^{jkl}\sigma_l \Rightarrow \{\gamma^j,\gamma^k\} = -2\delta^{jk}
+\end{array}\right\} \Rightarrow \{\gamma^\mu,\gamma^\nu\}=2g^{\mu\nu} \checkmark
+ \]
+\[ \gamma^0\gamma^1\gamma^2\gamma^3 = \gamma^5 \checkmark \]
+\subsection{}
+\begin{align*}
+\Ld &= \bar\psi(\slashed \partial - m)\psi\\
+ &=
+(\phi^\dag, \chi^\dag)
+\left(\begin{array}{cc}
+-m &\partial_0 + \sigma^j\partial_j\\
+\partial_0 - \sigma^j\partial_j & -m
+\end{array}\right)
+\left(\begin{array}{c}\phi\\\chi\end{array}\right) \\
+ &=
+(\phi^\dag, \chi^\dag)
+\left(\begin{array}{c}
+-m\phi + (\partial_0 + \sigma^j\partial_j)\chi\\
+(\partial_0 - \sigma^j\partial_j)\phi - m\chi
+\end{array}\right) \\
+ &= \phi^\dag(\partial_0 - \sigma^j\partial_j)\phi +  \chi^\dag(\partial_0 + \sigma^j\partial_j)\chi -m\phi^\dag\phi -m\chi^\dag\chi - m\phi^\dag\chi - m\chi^\dag\phi\\
+&= \phi^\dag(\partial_0 - \sigma^j\partial_j)\phi +  \chi^\dag(\partial_0 + \sigma^j\partial_j)\chi - m\phi^\dag\chi - m\chi^\dag\phi
+\end{align*}
+\[\text{denn:}\quad \phi^\dag\phi = \bar\psi_L\psi_L = \frac 1 4\bar\psi(\mathbbm 1 + \gamma^5)(\mathbbm 1 - \gamma^5)\psi = 0\]
+
+\section{Impulsoperator}
+\begin{align*}
+\Nabla\psi &= \sum\limits_r\int\!\!\frac{d^3p}{(2\pi)^{3/2}2E_{p}}
+ \hat c^{(r)}(\vec p)u^{(r)}(p)\Nabla\exp(-ipx) + \hat d^{(r)\dag}(\vec p)v^{(r)}(p)\Nabla\exp(ipx) \\
+ &= i\sum\limits_r\int\!\!\frac{d^3p\,\vec p}{(2\pi)^{3/2}2E_{p}}
+ \hat c^{(r)}(\vec p)u^{(r)}(p)\exp(-ipx) - \hat d^{(r)\dag}(\vec p)v^{(r)}(p)\exp(ipx)
+\end{align*}
+\begin{align*}
+\hat {\vec P} &= -i\int\!\!d^3x\,\psi^\dag(x)\Nabla\psi\\
+ &= \sum\limits_{r,s}\int\!\!\frac{d^3pd^3q\,\vec q}{2E_{p}2E_q}\!\int\!\!\frac{d^3x}{(2\pi)^3}
+ \left( \hat c^{(r)\dag}(\vec p)u^{(r)\dag}(p)\exp(+ipx) + \hat d^{(r)}(\vec p)v^{(r)^\dag}(p)\exp(-ipx) \right)\\
+ &\hspace{120pt}\left( \hat c^{(s)}(\vec q)u^{(s)}(q)\exp(-iqx) - \hat d^{(s)\dag}(\vec q)v^{(s)}(q)\exp(iqx) \right)\\
+ &= \sum\limits_{r}\int\!\!\frac{d^3p}{2E_{p}} \vec p\left( \hat c^{(r)\dag}\hat c^{(r)} - \hat d^{(r)}\hat d^{(r)\dag}\right)
+\end{align*}
+mit selben Argumenten wie immer: $\exp(\ldots) d^3x$ liefert $\delta^3(\vec p\pm \vec q)$; die $\delta^3(\vec p+ \vec q)$ werden durch die $(u,v)$-Produkte eliminiert; bei den $\delta^3(\vec p- \vec q)$-Beiträgen werden durch die $(u,v)$-Produkte die Spins gleichgesetzt;
+\[ \Rightarrow \normOrd{\hat {\vec P}} = \sum\limits_{r}\int\!\!\frac{d^3p}{2E_{p}} \vec p\left( \hat c^{(r)\dag}\hat c^{(r)} + \hat d^{(r)\dag}\hat d^{(r)}\right) \]
+
+\section{Wick-Theorem}
+\begin{align*}
+&\bra 0 \To[\psi_a(x_1)\psi_b(x_2)\psi_c(x_3)\hat\psi_d(x_4)\hat\psi_e(x_5)\hat\psi_f(x_6)] \ket 0\\
+ &=
+  (-)^{2+1} S^F_{ad}(x_1-x_4)S^F_{be}(x_2-x_5)S^F_{cf}(x_3-x_6)
++ (-)^{2}   S^F_{ad}(x_1-x_4)S^F_{bf}(x_2-x_6)S^F_{ce}(x_3-x_5) \\
+&+(-)^{3+1} S^F_{ae}(x_1-x_5)S^F_{bd}(x_2-x_4)S^F_{cf}(x_3-x_6)
++ (-)^{3}   S^F_{ae}(x_1-x_5)S^F_{bf}(x_2-x_6)S^F_{cd}(x_3-x_4) \\
+&+(-)^{4+1} S^F_{af}(x_1-x_6)S^F_{bd}(x_2-x_4)S^F_{ce}(x_3-x_5)
++ (-)^{4}   S^F_{af}(x_1-x_6)S^F_{be}(x_2-x_5)S^F_{cd}(x_3-x_4) \\
+\end{align*}
+
+\section{Yukawa}
+\subsection{}
+\[\bra f \hat S \ket i = \frac 1 2(-ig)^2\int\!\!d^3xd^3y \bra f \To[\bar\psi_a(x)\psi_a(x)\phi(x)\bar\psi_b(y)\psi_b(y)\phi(y)] \ket i\]
+\begin{align*}
+&\bra f \To[\bar\psi_a(x)\psi_a(x)\phi(x)\bar\psi_b(y)\psi_b(y)\phi(y)] \ket i\\
+ &= \bra f \normOrd{\bar\psi_a(x)\psi_b(y)}\normOrd{\phi(x)\phi(y)} \ket i S^F_{ab}(x-y) +
+	\bra f \normOrd{\psi_a(x)\bar\psi_b(y)}\normOrd{\phi(x)\phi(y)} \ket i S^F_{ab}(x-y)
+\end{align*}
+\begin{align*}
+%&\bra 0 \hat a_1\hat c_1\hat c^{\dag}_2\hat c_3\hat a^\dag_2\hat a_3 \hat c^\dag_4\hat a^\dag_4 \ket 0\\
+% &=[\hat a_1,\hat a^\dag_2][\hat a_3,\hat a^\dag_4]\\
+&\bra 0 \hat a(\vec k_1)\hat c^{(r)}(\vec k_2)\hat c^{(w_1)\dag}(\vec q_1)\hat c^{(w_2)}(\vec q_2)\hat a^\dag(\vec \kappa_1)\hat a(\vec \kappa_2) \hat c^{(s)\dag}(\vec p_2)\hat a^\dag(\vec p_1)\ket 0\\
+&= \bra 0 \hat c^{(r)}(\vec k_2)\hat c^{(w_1)\dag}(\vec q_1)\ket 0 \bra 0\hat c^{(w_2)}(\vec q_2) \hat c^{(s)\dag}(\vec p_2)\ket 0 \bra 0 \hat a(\vec k_1)\hat a^\dag(\vec \kappa_1)\ket 0 \bra 0\hat a(\vec \kappa_2)\hat a^\dag(\vec p_1)\ket 0\\
+ &= \{\hat c^{(r)}(\vec k_2),\hat c^{(w_1)\dag}(\vec q_1)\} \{\hat c^{(w_2)}(\vec q_2),\hat c^{(s)}(\vec p_2)\} [\hat a(\vec k_1),\hat a^\dag(\vec \kappa_1)] [\hat a(\vec \kappa_2),\hat a^\dag(\vec p_1)]
+\end{align*}
+\begin{align*}
+& \frac {(-ig)^2} 2\!\int\!\!d^3xd^3y \bra f\normOrd{\bar\psi_a(x)\psi_b(y)}\normOrd{\phi(x)\phi(y)} \ket i S^F_{ab}(x-y)\\
+ &= \frac {(-ig)^2} 2\!\int\!\!d^3xd^3y \left( \prod\limits_{j=1}^2 \sum\limits_{w_j}\int\!\!\frac {d^3q_jd^3\kappa_j}{(2\pi)^{3/2}2E_q2E_\kappa} \right) S^F_{ab}(x-y)\\
+&\hspace{80pt} \exp(+i\kappa_1x - i\kappa_2y)2E_{\kappa_1}\delta^3(\vec \kappa_1 - \vec k_1)2E_{\kappa_2}\delta^3(\vec \kappa_2 - \vec p_1)\\
+&\hspace{80pt} \exp(+iq_1x - iq_2y) \bar u^{(w_1)}_a(q_1) u^{(w_2)}_b(q_2)2E_{q_1}\delta^3(\vec q_1 - \vec k_2)\delta^{w_1,s}2E_{q_2}\delta^3(\vec q_2 - \vec p_2)\delta^{w_2,r}\\
+ &= \frac {(-ig)^2} 2 ((2\pi)^{3/2})^{-4} 2\!\int\!\!d^3xd^3y \!\int\!\! \frac {d^4k}{(2\pi)^4}\frac {i\bar u^{(s)}(p_2)(\slashed k + M)u^{(r)}(k_2)}{k^2 - M^2 + i\epsilon}\exp(i(k_1 + k_2 - k)x - i(p_1 + p_2 + k)y)\\
+ &=\frac {(-ig)^2} 2 \bar u^{(s)}(p_2)\frac {i(\slashed k_1 + \slashed k_2 + M)}{(k_1+k_2)^2 - M^2}u^{(r)}(k_2) \cdot \frac {(2\pi)^4\delta(k_1 + k_2 - p_1- p_2)}{((2\pi)^{3/2})^{4}}
+\end{align*}
+anderere Beitrag analog
+
+\subsection{}
+\begin{center}\begin{tabular}{
+>{\centering\vspace{40pt}}m{180pt}
+>{\centering\vspace{40pt}}m{180pt}
+}
+\begin{fmffile}{A42-a-1}
+	\begin{fmfgraph*}(60,50)
+	\fmfleft{Ni,Pi}
+	\fmfright{Po,No}
+
+	\fmf{dashes}{Pi,v2}
+	\fmf{dashes}{v1,Po}
+	\fmf{fermion}{Ni,v1,v2,No}
+
+	\fmfforce{.5w,.2h}{v1}
+	\fmfforce{.5w,.8h}{v2}
+
+	\fmfdot{v1,v2}
+	\fmflabel{$k_1$}{Pi}
+	\fmflabel{$k_2,r$}{Ni}
+	\fmflabel{$p_1$}{Po}
+	\fmflabel{$p_2,s$}{No}
+
+	\end{fmfgraph*}
+\end{fmffile}
+&
+\begin{fmffile}{A42-a-2}
+	\begin{fmfgraph*}(60,50)
+	\fmfleft{Ni,Pi}
+	\fmfright{Po,No}
+
+	\fmf{dashes}{Pi,v1}
+	\fmf{dashes}{v2,Po}
+	\fmf{fermion}{Ni,v1,v2,No}
+
+	\fmfforce{.2w,.5h}{v1}
+	\fmfforce{.8w,.5h}{v2}
+
+	\fmfdot{v1,v2}
+	\fmflabel{$k_1$}{Pi}
+	\fmflabel{$k_2,r$}{Ni}
+	\fmflabel{$p_1$}{Po}
+	\fmflabel{$p_2,s$}{No}
+
+	\end{fmfgraph*}
+\end{fmffile}
+\end{tabular}\end{center}
+\[ iM_{fi} = (-ig)^2\bar u^{(s)}(p_2) i\left(
+\frac {\slashed k_2 - \slashed p_1 + M}{(k_2-p_1)^2 - M^2} + \frac {\slashed k_1 + \slashed k_2 + M}{(k_1+k_2)^2 - M^2}
+\right) u^{(r)}(k_2) \]
+
+\end{document}

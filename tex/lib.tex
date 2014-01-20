@@ -1,0 +1,64 @@
+
+\providecommand{\abs}[1]{\left|#1\right|}
+\providecommand{\VektorV}[3]{
+\!\left(\!\!
+\begin{array}{c}
+#1 \\ #2 \\ #3
+\end{array}\!\!
+\right)\!
+}
+
+\providecommand{\Det}[9]{
+	\begin{vmatrix}
+	    #1 & #2 & #3 \\
+	    #4 & #5 & #6 \\
+	    #7 & #8 & #9 \\	    
+	\end{vmatrix}
+}
+
+\DeclareMathOperator{\Grad}{\text{grad}}
+\DeclareMathOperator{\Div}{\text{div}}
+\DeclareMathOperator{\Rot}{\text{rot}}
+\DeclareMathOperator{\tr}{\text{tr}}
+
+\DeclareMathOperator{\acos}{\text{arccos}}
+\DeclareMathOperator{\asin}{\text{arcsin}}
+\DeclareMathOperator{\x}{\times}
+\DeclareMathOperator{\cdt}{\!\cdot\!}
+\DeclareMathOperator{\del}{\partial}
+\DeclareMathOperator{\EqualClaim}{\stackrel{!}{=}}
+\DeclareMathOperator{\equivals}{\mathrel{\widehat{=}}}
+\providecommand{\Nabla}[0]{\vec\nabla}
+\providecommand{\ex}[1]{e^{#1}}
+\providecommand{\EE}[1]{\cdot 10^{#1}}
+\providecommand{\FT}[1]{\mathcal{FT}\left[#1\right]}
+
+\providecommand{\dt}[0]{\Derive t}
+\providecommand{\dx}[0]{\Derive x}
+\providecommand{\Derive}[1]{\DeriveN{#1}{}}
+\providecommand{\DeriveN}[2]{\DeriveNF {#1}{#2}{}}
+\providecommand{\DeriveF}[2]{\DeriveNF {#1}{}{#2}}
+\providecommand{\DeriveNF}[3]{\frac {d^{#2}#3} {d #1^{#2}}}
+\providecommand{\dtP}[0]{\DeriveP t}
+\providecommand{\dxP}[0]{\DeriveP x}
+\providecommand{\DeriveP}[1]{\DerivePN{#1}{}}
+\providecommand{\DerivePF}[2]{\DerivePNF {#1} {} {#2}}
+\providecommand{\DerivePN}[2]{\DerivePNF {#1} {#2} {} }
+\providecommand{\DerivePNF}[3]{\frac {\partial^{#2}#3} {\partial #1^{#2}}}
+\providecommand{\DerivePMF}[3]{\frac {\partial^{2}#3} {\partial #1 \partial #2}}
+\providecommand{\e}[1]{\hat{e}_{#1}}
+
+\providecommand{\bra}[1]{\langle#1\rvert}
+\providecommand{\ket}[1]{\lvert#1\rangle}
+\providecommand{\bracket}[2]{\langle#1\vert#2\rangle}
+\providecommand{\normOrd}[1]{\,:\!#1\!:\,}
+\providecommand{\wContr}[3]{\contraction{}{#1}{#2}{#3}#1#2#3}
+
+\DeclareMathOperator{\und}{\text{UND}}
+\DeclareMathOperator{\oder}{\text{ODER}}
+
+\DeclareMathOperator{\Md}{\mathcal M}
+\DeclareMathOperator{\Ld}{\mathcal L}
+\DeclareMathOperator{\Hd}{\mathcal H}
+\DeclareMathOperator{\Nd}{ \hat {\mathcal N}}
+\DeclareMathOperator{\To}{ \hat {\mathcal T}}

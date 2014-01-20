@@ -1,0 +1,111 @@
+% UiO FYS4411 report
+% @author: Felix Hekhorn <felix.hekhorn@student.uni-tuebingen.de>
+
+\documentclass[
+  ngerman,english,		% Sprache
+  a4paper,		% Papierformat
+  11pt,			% Schriftgröße (default 10pt)
+  %DIV=12,		% Seiteneinteilung
+  DIV=12,
+  titlepage,
+  toc=bibnumbered,
+  parskip=full,  	% Absätze (full,half,false -+*)
+  headings=normal,
+  BCOR10mm
+]{scrreprt}
+%\documentclass[a4paper,10pt]{article}
+\usepackage{scrtime,scrlfile,scrpage2}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman,english]{babel}
+\usepackage{amsmath, amssymb}
+
+%\usepackage{graphicx} % Grafiken einbinden
+% The following is needed in order to make the code compatible
+% with both latex/dvips and pdflatex.
+\ifx\pdftexversion\undefined
+\usepackage[dvips]{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+
+%\usepackage[left=2cm,right=2cm,top=2.5cm,bottom=3cm]{geometry}
+\usepackage{color}
+\usepackage{bbm}
+
+\usepackage{pdflscape}
+\usepackage{ulem}
+\usepackage{url}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{array}
+
+\usepackage{siunitx} % SI Einheiten
+\usepackage[version=3]{mhchem}
+\sisetup{
+	exponent-product = \!\cdot\!,
+	output-product = \cdot,
+	list-final-separator =  { und } ,
+	list-pair-separator = { und } ,
+	range-phrase = { bis },
+	output-decimal-marker = {,},
+	separate-uncertainty = true,
+	group-digits = false
+}
+
+\usepackage{simplewick}
+\usepackage{feynmf}
+\usepackage{slashed}
+
+%\usepackage{biblatex}
+\usepackage[numbers]{natbib}
+\bibliographystyle{natdin}
+
+\usepackage[pagebackref=true]{hyperref}
+\hypersetup{colorlinks=false}
+\usepackage{tabularx}
+
+\include{lib}
+
+%\parindent0em
+\titlehead{University of Oslo\\
+Computational Physics}
+\subject{Report}
+\title{TODO}
+\author{Felix Hekhorn\footnote{felix.hekhorn@student.uni-tuebingen.de}}
+\date{spring 2014}
+\publishers{by Morten TODO}
+
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\input{report.introduction}
+\input{report.theory}
+\input{report.results}
+
+\appendix
+
+\input{report.appendix}
+
+%\renewcommand{\refname}{\chapter{Literaturverzeichnis}}
+\bibliography{report.bib}
+
+\begingroup
+\let\clearpage\relax
+\chapter{Versicherung}
+TODO: Hiermit erkläre ich, dass ich die vorliegende Arbeit selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel verwendet habe.
+
+\vspace{3cm}
+\begin{tabularx}{\linewidth}{X p{10cm}}\cline{2-2}
+& (date, place) Felix Hekhorn
+\end{tabularx}
+\endgroup
+
+\end{document}
