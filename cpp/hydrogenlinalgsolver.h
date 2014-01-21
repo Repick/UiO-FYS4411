@@ -1,9 +1,3 @@
-/**
- * Defines the header for HydrogenLinAlgSolver
- *
- * @author Felix Hekhorn <felix.hekhorn@student.uni-tuebingen.de>
- **/
-
 #ifndef HYDROGENLINALGSOLVER_H
 #define HYDROGENLINALGSOLVER_H
 

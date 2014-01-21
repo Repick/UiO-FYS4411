@@ -16,8 +16,6 @@ HydrogenLinAlgSolver::HydrogenLinAlgSolver(uint N_step, dbl R_max, dbl Z, uint l
         // potential space
         this->V[j] = this->getV(x);
     }
-    //cout << endl << this->r << endl << this->V << endl;
-
 }
 
 cx_double HydrogenLinAlgSolver::getV(dbl r) {
