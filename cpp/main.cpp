@@ -18,6 +18,7 @@ using namespace std;
 int main(/*int argc, char **argv*/) {
     HydrogenLinAlgSolver app(100,10.);
     app.run();
+    app.logV("./results/V.dat");
 
     //EXIT_FAILURE;
     return EXIT_SUCCESS;

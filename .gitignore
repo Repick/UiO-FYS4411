@@ -1,2 +1,4 @@
 # gedit
 *~
+# as we have different OS, don't sync build
+build/

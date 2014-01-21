@@ -88,6 +88,13 @@ public:
      * @brief solves the problem
      */
     void run();
+
+    /**
+     * @brief logV
+     * loggs the potential to a file
+     * @param path targetpath of file
+     */
+    void logV(str path);
 };
 
 #endif // HYDROGENLINALGSOLVER_H
